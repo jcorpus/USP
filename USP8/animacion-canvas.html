@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Animacion</title>
+</head>
+<body>
+<h1>Animación</h1>
+<canvas id="comentario" width="300px" height="300px"></canvas>
+
+<canvas id="cosilla" width="300px" height="300px"></canvas>
+
+<canvas id="animacion" width="300px" height="300px"></canvas>
+
+<canvas id="caminoss" width="300px" height="300px"></canvas>
+
+<canvas id="html5" width="512px" height="512px"></canvas>
+
+<img src="HTML5.png" class="html55"></img>
+
+<canvas id="cosilla2" width="300px" height="300px"></canvas>
+
+<canvas id="figura" width="300px" height="300px"></canvas>
+
+<canvas id="pacman" width="300px" height="300px"></canvas>
+
+<canvas id="arcos2" width="300px" height="300px"></canvas>
+
+<canvas id="cuadratica" width="300px" height="300px"></canvas>
+
+<canvas id="hongito" width="320px" height="320px"></canvas>
+
+<canvas id="curva-bezier" width="300px" height="300px"></canvas>
+
+<canvas id="fondoway" width="1600px" height="260"></canvas>
+<img src="fondoway.png"></img>
+
+<canvas id="imagen-canvas" width="300px" height="300px"></canvas>
+
+
+<style type="text/css">
+	#cosilla{
+	background-color:#489cdf;
+	}
+	#caminoss{background-color:#d7d7d7;}
+
+	#html59{
+	background-color:#1FBF71;
+	}
+	
+	.html55{background-color:#121212;}
+	
+	#pacman{
+	background-color:#489cdf;
+	
+	}
+	
+	#cuadratica{background-color:#ECECEC;}
+	#curva-bezier{background-color:#F0F0F0;}
+</style>
+
+<script type="text/javascript">
+
+var elemento, contexto, contextoani;
+///imagen en canvas
+var img = new Image();
+img.src = 'hongo.png';
+///
+img.onload = inicioimg();
+	function inicioimg(){
+	elemento = document.getElementById('imagen-canvas');
+	contexto = elemento.getContext('2d');
+	imagenn(contexto);
+	
+	};
+
+///
+window.onload = inicio();
+
+	function inicio(){
+
+		/////pocman
+	elemento = document.getElementById('comentario');
+	contexto = elemento.getContext('2d');
+	comentarioo(contexto);
+	
+	//practice
+	elemento = document.getElementById('cosilla');
+	contexto =  elemento.getContext('2d');
+	cualquiercosa(contexto);
+
+	
+
+	//ANIMACION
+	elemento = document.getElementById('animacion');
+	contextoani = elemento.getContext('2d');
+	aleatorio(contextoani);
+	cuadradosAleatorios(contextoani);
+	///animacion
+	setInterval("cuadradosAleatorios(contextoani)", 900);
+
+	//caminos
+
+	elemento = document.getElementById('caminoss');
+	contexto = elemento.getContext('2d');
+	caminos(contexto);
+
+	///dibujando html5
+	elemento= document.getElementById ('html5');
+	contexto = elemento.getContext('2d');
+	html5logo(contexto);
+
+	//cosilla2
+	elemento= document.getElementById('cosilla2');
+	contexto= elemento.getContext('2d');
+	escaleras(contexto);
+	
+	//figurass
+	elemento= document.getElementById('figura');
+	contexto= elemento.getContext('2d');
+	figuras(contexto);
+	
+	//ARCOS un PACMAN
+	elemento = document.getElementById('pacman');
+	contexto = elemento.getContext('2d');
+	pacmann(contexto);
+	
+	//ARCOS 2
+	elemento = document.getElementById('arcos2');
+	contexto = elemento.getContext('2d');
+	arcos2(contexto);
+	
+	//CURVAS CUADRATICAS
+	elemento = document.getElementById('cuadratica');
+	contexto = elemento.getContext('2d');
+	cuadraticas(contexto);
+	
+	//hongo de mario
+	elemento = document.getElementById('hongito');
+	contexto = elemento.getContext('2d');
+	hongitoo(contexto);
+	
+	//curva bezier
+	elemento = document.getElementById('curva-bezier');
+	contexto = elemento.getContext('2d');
+	curvabezier(contexto);
+	
+	//FONDOWAY
+	elemento = document.getElementById('fondoway');
+	contexto = elemento.getContext('2d');
+	fondowayy(contexto);
+	
+	///IMAGENES EN JAVASCRIPT
+	
+	
+	};
+
+	
+	function comentarioo(ctx){
+		// creamos marco
+		dibujarMarco(ctx,'#121212'); // Dibujo un marco
+
+	ctx.beginPath();
+	ctx.moveTo(75,25);
+	ctx.quadraticCurveTo(25,25,25,62.5);
+	ctx.quadraticCurveTo(25,100,50,100);
+	ctx.quadraticCurveTo(50,120,30,125);
+	ctx.quadraticCurveTo(60,120,65,100);
+	ctx.quadraticCurveTo(125,100,125,62.5);
+	ctx.quadraticCurveTo(125,25,75,25);
+	ctx.stroke();
+	
+
+	};
+	
+	function dibujarMarco(trazo,color){
+		trazo.moveTo(0,0); // Para dibujar un marco
+		trazo.lineTo(0,300);
+		trazo.lineTo(300,300);
+		trazo.lineTo(300,0);
+		trazo.lineTo(0,0);
+		trazo.fillStyle = '#fff';//color de fondo del canvas
+		trazo.fill();
+		trazo.strokeStyle = color;
+		trazo.stroke(); // Para dibujar un marco
+	};
+	//----------------------diagonales------------------
+	function cualquiercosa(trazo){
+	
+	trazo.fillStyle = '#FFFF80';///color verde
+	trazo.fillRect(50, 150, 20, 20);
+	
+
+
+	 //diagonal amarillo
+		for (i =0; i<=300; i+=50){
+	trazo.fillStyle = '#E1E100'; //color amarillo
+	trazo.fillRect(i,i,50,50);
+	
+	};
+	 
+	 //diagonal  verder
+	 for(i=250; i>=0; i-=50){
+	 
+		trazo.fillStyle = '#1FBF71'; //color verde
+		trazo.fillRect (i,250-i,50,50);
+	 };
+	 
+	 
+	 	//el borde tiene que ir al ultimo
+	trazo.fillStyle = '#121212';
+	trazo.strokeRect (0, 0, 300, 300);
+
+	};
+
+	
+	//--------------------ANIMACION CON CANVAS--------------------
+	
+	
+			function aleatorio(inferior,superior){
+		numPosibilidades = superior - inferior
+		aleat = Math.random() * numPosibilidades
+		aleat = Math.floor(aleat)
+		return parseInt(inferior) + aleat
+		};
+		function colorAleatorio(){
+		return "rgb(" + aleatorio(0,255) + "," + aleatorio(0,255) + "," + aleatorio(0,255) + ")";
+		};
+		/////////////
+				function cuadradosAleatorios(trazo){
+		for(i=0; i<300; i+=10){
+		for(j=0; j<250; j+=10){
+		trazo.fillStyle = colorAleatorio();
+		trazo.fillRect(i,j,10,10)
+		};
+		};
+		};
+		//--------------------ANIMACION CON CANVAS--------------------
+	
+	
+	/////////rombo
+	function caminos(ctx){
+	ctx.beginPath();
+	ctx.moveTo(150,50);
+	ctx.lineTo(250,100);
+	ctx.lineTo(150,150);
+	ctx.lineTo(50,100);
+	ctx.fill();
+	
+	};
+	
+	////html5 logo -FONDO
+	function html5logo(ctx){
+	ctx.beginPath();
+	ctx.fillStyle = '#E44D26';
+	ctx.moveTo(30,0);
+	ctx.lineTo(70,460);
+	ctx.lineTo(256,512);
+	ctx.lineTo(442,460);
+	ctx.lineTo(482,0);
+	ctx.fill();
+	ctx.closePath();
+	//otro fondo
+	ctx.beginPath();
+	ctx.fillStyle = '#F16529';
+	ctx.moveTo(256,40);
+	ctx.lineTo(440,40);//-2
+	ctx.lineTo(405,430);//-2
+	ctx.lineTo(256,472);
+	ctx.fill();
+	ctx.closePath();
+	//el cinco
+	ctx.beginPath();
+	ctx.fillStyle = '#fff';
+	ctx.moveTo(256,95);
+	ctx.lineTo(256,150);
+	ctx.lineTo(392,150);
+	ctx.lineTo(398,95);///397
+	ctx.fill();
+	ctx.closePath();
+	///cinco mas oscuro
+	ctx.beginPath();
+	ctx.fillStyle = '#EBEBEB';
+	ctx.moveTo(256,95);///el grosor del 5 es de 55
+	ctx.lineTo(114,95);
+	ctx.lineTo(130,265);///134
+	ctx.lineTo(256,265);
+	ctx.lineTo(256,210);//
+	ctx.lineTo(180,210);//
+	ctx.lineTo(175,150);
+	ctx.lineTo(256,150);
+	ctx.fill();
+	ctx.closePath();
+	//cinco claro
+	ctx.beginPath();
+	ctx.fillStyle = '#fff';
+	ctx.moveTo(256,210);
+	ctx.lineTo(387,210);
+	ctx.lineTo(370,390);
+	ctx.lineTo(256,415);//3
+	ctx.lineTo(256,355);//4
+	ctx.lineTo(319,342);//5
+	ctx.lineTo(325,265);
+	ctx.lineTo(256,265);
+	ctx.fill();
+	ctx.closePath();
+	//cinco oscuro izquierda
+	ctx.beginPath();
+	ctx.fillStyle='#EBEBEB';
+	ctx.moveTo(256,415);
+	ctx.lineTo(144,390);
+	ctx.lineTo(134,295);
+	ctx.lineTo(188,295);
+	ctx.lineTo(193,342);
+	ctx.lineTo(256,355);
+	ctx.lineTo(256,415);
+	ctx.fill();
+	ctx.closePath();
+	};
+	/////////////////////PRACTICANDO
+	function escaleras(ctx){
+	
+	//escalera continua
+	/*
+	ctx.beginPath();
+	ctx.moveTo(1,1);
+	for (i=1;i<100;i+=5){
+	if((i%2)!=0){
+	ctx.lineTo(i+5,i);
+	}else{
+	ctx.lineTo(i,i+5);
+	}
+	}
+	ctx.lineTo(1,i);
+	ctx.closePath();
+	ctx.stroke(); 
+	*/
+	//escalera discontinua
+	ctx.beginPath();
+	ctx.moveTo(1,1);
+	for (i=1;i<100;i+=5){
+	if((i%2)!=0){
+	ctx.lineTo(i+5,i);
+	}else{
+	ctx.moveTo(i,i+5);
+	}
+	}
+	ctx.stroke();
+	
+	};
+	
+	function figuras(ctx){
+	
+	ctx.beginPath();
+	ctx.moveTo(50,165);
+	ctx.lineTo(112,165);
+	ctx.lineTo(143,219);
+	ctx.lineTo(112,273);
+	ctx.lineTo(50,273);
+	ctx.lineTo(19,219);
+	ctx.lineTo(50,165);///si quito esto no  se cierra el
+	ctx.stroke();
+	
+	//CARITA FELIZ
+	
+	ctx.beginPath();
+	ctx.arc(75,75,50,0,Math.PI*2,true);
+	ctx.moveTo(110,75);
+	ctx.arc(75,75,35,0,Math.PI,false);
+	ctx.moveTo(65,65);
+	ctx.arc(60,65,5,0,Math.PI*2,true);
+	ctx.moveTo(95,65);
+	ctx.arc(90,65,5,0,Math.PI*2,true);
+	ctx.stroke();
+	};
+	
+	//DIBUJANDO ARCOS AL PACMAN
+	
+	function pacmann(ctx){
+	ctx.beginPath();
+	ctx.fillStyle ='#E8FF0C';
+//arc(x, y, radio, angulo_inicio, angulo_final, sentido_contrario_del_reloj) 
+	ctx.arc(150, 150, 110, 0, Math.PI*0.25, true);//sentido contrario del reloj
+	ctx.lineTo(150,150);
+	ctx.lineTo(260,150);
+	ctx.fill();
+	ctx.closePath();
+	///ojito
+	ctx.beginPath();
+	ctx.fillStyle = '#343434';
+	ctx.arc(205, 110, 15, 0, Math.PI*2, false);
+	ctx.fill();
+	ctx.closePath();
+	
+	//cuadrado de prueba
+	ctx.beginPath();
+	ctx.fillStyle ='#121212';
+	ctx.moveTo(50,250);
+	ctx.lineTo(50,300);
+	ctx.lineTo(100,300);
+	ctx.lineTo(100,250);
+	ctx.fill();
+	ctx.closePath();
+	};
+	
+	///Practicando con arcos
+	function arcos2(ctx){
+	
+	/*
+	ctx.beginPath();
+	ctx.fillStyle = '#121212';
+	ctx.arc(150, 150, 60, Math.PI, Math.PI*0.5, false);
+	ctx.arc(150, 150, 30, Math.PI*0.5, Math.PI*1, false);
+	ctx.lineTo(120,150);
+	ctx.lineTo(90,150);
+	ctx.stroke();
+	*/
+	
+	ctx.beginPath();
+	/*ctx.strokeStyle = '#E8FF0C'; *///contorno amarillo
+	ctx.arc(150,150,60,Math.PI,Math.PI*0.5,false);
+	ctx.arc(150,150,30,Math.PI*0.5,Math.PI*1,false);
+	ctx.closePath()
+	ctx.stroke();
+	//segundo camino, en naranja
+	ctx.fillStyle = '#ff8800';
+	ctx.beginPath();
+	ctx.arc(150,150,15,0,Math.PI*2,false);
+	ctx.fill();
+
+	
+	};
+	///CURVAS CUADRATICAS
+	function cuadraticas(ctx){
+	/*
+	ctx.beginPath();
+	ctx.moveTo(50,150)
+	ctx.quadraticCurveTo(100,80,150,150);
+	ctx.stroke();
+		//cuadrado de prueba
+	ctx.beginPath();
+	ctx.fillStyle ='#121212';
+	ctx.moveTo(50,80);
+	ctx.lineTo(50,130);
+	ctx.lineTo(100,130);
+	ctx.lineTo(100,80);
+	ctx.stroke();
+	ctx.closePath();
+	*/
+	///COMENTARIO
+	ctx.beginPath();
+	ctx.moveTo(60,250);
+	ctx.quadraticCurveTo(110,200,80,150);
+	ctx.quadraticCurveTo(5,15,150,15);
+	ctx.quadraticCurveTo(280,15,250,150);
+	ctx.quadraticCurveTo(225,220,120,190);
+	ctx.quadraticCurveTo(115,210,60,250);
+	
+	ctx.stroke();
+	
+	};
+	
+	///hongito de mario
+	function hongitoo(ctx){
+	
+	ctx.beginPath();
+	ctx.fillStyle = '#000';//por defecto es negro pero por siaca
+	ctx.moveTo(60,320);
+	ctx.lineTo(260,320);
+	ctx.lineTo(260,300);
+	ctx.lineTo(280,300);
+	ctx.lineTo(280,260);
+	ctx.lineTo(300,260);
+	ctx.lineTo(300,240);///6
+	ctx.lineTo(320,240);
+	ctx.lineTo(320,100);
+	ctx.lineTo(300,100);///9
+	ctx.lineTo(300,60);
+	ctx.lineTo(280,60);//11
+	ctx.lineTo(280,40);//12
+	ctx.lineTo(260,40);
+	ctx.lineTo(260,20);
+	ctx.lineTo(220,20);
+	ctx.lineTo(220,0);
+	ctx.lineTo(100,0);
+	ctx.lineTo(100,20);
+	ctx.lineTo(60,20);
+	ctx.lineTo(60,40);
+	ctx.lineTo(40,40);///21
+	ctx.lineTo(40,60);
+	ctx.lineTo(20,60);
+	ctx.lineTo(20,100);
+	ctx.lineTo(0,100);
+	ctx.lineTo(0,240);
+	ctx.lineTo(20,240);
+	ctx.lineTo(20,260);
+	ctx.lineTo(40,260);
+	ctx.lineTo(40,300);
+	ctx.lineTo(60,300);
+	ctx.lineTo(60,320);
+	ctx.fill();
+	ctx.closePath();
+	///parte blanca
+	ctx.beginPath();
+	ctx.fillStyle = '#fff';
+	ctx.moveTo(80,300);
+	ctx.lineTo(240,300);
+	ctx.lineTo(240,280);
+	ctx.lineTo(260,280);
+	ctx.lineTo(260,240);
+	ctx.lineTo(240,240);
+	ctx.lineTo(240,220);
+	ctx.lineTo(200,220);
+	ctx.lineTo(200,260);
+	ctx.lineTo(180,260);
+	ctx.lineTo(180,220);
+	ctx.lineTo(140,220);
+	ctx.lineTo(140,260);
+	ctx.lineTo(120,260);
+	ctx.lineTo(120,220);
+	ctx.lineTo(80,220);
+	ctx.lineTo(80,240);
+	ctx.lineTo(60,240);
+	ctx.lineTo(60,280);
+	ctx.lineTo(80,280);
+	ctx.lineTo(80,300);
+	ctx.fill();
+	ctx.closePath();
+	///color rojo
+	ctx.beginPath();
+	ctx.fillStyle = '#CE0C02';///rojo
+	ctx.moveTo(20,220);
+	ctx.lineTo(60,220);
+	ctx.lineTo(60,200);
+	ctx.lineTo(260,200);
+	ctx.lineTo(260,220);
+	ctx.lineTo(300,220);
+	ctx.lineTo(300,120);
+	ctx.lineTo(280,120);
+	ctx.lineTo(280,80);
+	ctx.lineTo(260,80);
+	ctx.lineTo(260,60);
+	ctx.lineTo(240,60);
+	ctx.lineTo(240,40);
+	ctx.lineTo(200,40);
+	ctx.lineTo(200,20);
+	ctx.lineTo(120,20);
+	ctx.lineTo(120,40);
+	ctx.lineTo(80,40);
+	ctx.lineTo(80,60);
+	ctx.lineTo(60,60);
+	ctx.lineTo(60,80);
+	ctx.lineTo(40,80);
+	ctx.lineTo(40,120);
+	ctx.lineTo(20,120);
+	ctx.lineTo(20,220);
+	ctx.fill();
+	ctx.closePath();
+	///color naranja
+	ctx.beginPath();
+	ctx.fillStyle = '#F38C1D';///rojo
+	ctx.moveTo(20,220);
+	ctx.lineTo(60,220);
+	ctx.lineTo(60,200);
+	ctx.lineTo(120,200);
+	ctx.lineTo(120,180);
+	ctx.lineTo(100,180);
+	ctx.lineTo(100,120);
+	ctx.lineTo(120,120);
+	ctx.lineTo(120,100);
+	ctx.lineTo(200,100);
+	ctx.lineTo(200,120);
+	ctx.lineTo(220,120);
+	ctx.lineTo(220,180);
+	ctx.lineTo(200,180);
+	ctx.lineTo(200,200);
+	ctx.lineTo(260,200);
+	ctx.lineTo(260,220);
+	ctx.lineTo(300,220);
+	ctx.lineTo(300,180);
+	ctx.lineTo(260,180);
+	ctx.lineTo(260,160);
+	ctx.lineTo(240,160);
+	ctx.lineTo(240,100);
+	ctx.lineTo(260,100);
+	ctx.lineTo(260,60);
+	ctx.lineTo(240,60);
+	ctx.lineTo(240,80);
+	ctx.lineTo(200,80);
+	ctx.lineTo(200,60);
+	ctx.lineTo(180,60);
+	ctx.lineTo(180,20);
+	ctx.lineTo(140,20);
+	ctx.lineTo(140,60);
+	ctx.lineTo(120,60);
+	ctx.lineTo(120,80);
+	ctx.lineTo(80,80);
+	ctx.lineTo(80,60);
+	ctx.lineTo(60,60);
+	ctx.lineTo(60,100);
+	ctx.lineTo(80,100);
+	ctx.lineTo(80,160);
+	ctx.lineTo(60,160);
+	ctx.lineTo(60,180);
+	ctx.lineTo(20,180);
+	ctx.lineTo(20,220);
+
+	ctx.fill();
+	ctx.closePath();
+	
+	};
+	
+	//// CURVA BEZIER
+	function curvabezier(ctx){
+	
+	ctx.beginPath();
+	ctx.strokeStyle = "#3ACF38";
+	ctx.moveTo(10,145);
+	ctx.bezierCurveTo(65,65,120,160,150,120);
+	ctx.quadraticCurveTo(200,35,290,145);
+	ctx.stroke();
+		
+	};
+	
+	///fondoway
+	function fondowayy(ctx){
+	
+	//cerro
+	ctx.beginPath();
+	ctx.fillStyle =  'rgba(209,209,209,0.7)';
+	ctx.moveTo(20,260);
+	ctx.bezierCurveTo(240,5,260,240,300,210);
+	ctx.quadraticCurveTo(330,180,410,260);
+	ctx.lineTo(20,260);
+	ctx.fill();
+	ctx.closePath();
+	/// monte verde
+	ctx.beginPath();
+	ctx.fillStyle = 'rgba(116,181,33, 0.7)';
+	ctx.moveTo(45,260);
+	ctx.quadraticCurveTo(140,217,160,220);
+	ctx.quadraticCurveTo(140,240,190,260);
+	ctx.fill();
+	ctx.closePath();
+	
+	//monte verde mas claro
+	ctx.beginPath();
+	ctx.fillStyle = 'rgba(121,197,36, 0.8)';
+	//ctx.fillStyle = '#7AC524';
+	ctx.moveTo(160,220);
+	ctx.quadraticCurveTo(175,210,387,260);///150,215
+	ctx.lineTo(190,260);
+	ctx.moveTo(160,220);
+	ctx.quadraticCurveTo(140,240,190,260);
+	ctx.fill();
+	ctx.closePath();
+	
+	
+	};
+	
+	//////IMAGENES EN CANVAS
+	function imagenn(ctx){
+	ctx.drawImage(img, 10,10);
+	
+	};
+	
+
+</script>
+
+</body>
+</html>
